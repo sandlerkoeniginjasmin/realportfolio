@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jasmin sonderegger</title>
+    <link rel="icon" type="image/x-icon" href="./carousel/diplome_24/Mittel (transp_25).png">
+    <style>
+
+        @font-face {
+            font-family: 'Redaction';
+            src: url('./Redaction_50-Italic.woff2') format('woff2');
+            font-weight: 50;
+            font-style: italic;
+        }
+
+        @font-face {
+            font-family: 'Authentic Sans';
+            src: url('./AUTHENTICSans-90.otf') format('otf');
+            font-weight: 50;
+            font-style: normal;
+        }
+
+        p { 
+            position: initial;
+            z-index: 100; /* Ensure menu is above other content */
+        }
+
+        body, html {
+            overflow-x: hidden; /* Hide horizontal scroll */
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+            color: rgb(198, 198, 198);
+            font-family: 'Redaction', sans-serif;
+            cursor: url('./cursortorso.cur'), auto;
+            display: flex;
+            justify-content: center; /* Center children horizontally */
+            align-items: baseline; /* Center children vertically */
+        }
+
+        .new-text-block {
+            font-family: 'Authentic Sans', sans-serif;
+            font-size: 50pt;
+            line-height: 1.15;
+            position: absolute; /* Remove the element from the normal document flow */
+            top: 55%; /* Position the element in the middle of the page */
+            left: 57.3%; /* Position the element in the middle of the page */
+            transform: translate(-50%, -50%); /* Center the element */
+            display:inline-block; /* Set the element to display as a block, which will start on a new line */
+            text-align: left; /* Center the text */
+        }
+
+        audio {
+            width: 300px;
+            height: 54px;
+        }
+
+        .menu {
+            width: 100%;
+            padding: 5px; /* Uniform padding on all sides */
+            padding-left: 15px;
+            padding-right: 10px;
+            box-sizing: border-box;
+            position: absolute; 
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed; /* Fixed positioning to keep the menu at the top */
+            z-index: 100; /* Ensure menu is above other content */
+        }
+
+        .menu a {
+            color: rgb(0, 255, 0);
+            text-decoration: none;
+            font-weight: bold;
+            cursor: url('./carousel/zeiger.cur'), auto;
+        }
+
+        .menu a:not(:hover) {
+            color: inherit;
+        }
+
+        .menu .center {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .contact {
+            font-family: 'Redaction', sans-serif;
+            color: rgb(198, 198, 198);
+            line-height: 1.4;
+            text-transform: none;
+            text-decoration: none;
+            text-indent: 0em;
+            border-bottom: none;
+            margin-top: 27px;
+            text-align:justify;
+            width: 100%;
+            padding: 0px; /* Uniform padding on all sides */
+            padding-left: 15px;
+            padding-right: 10px;
+            box-sizing: border-box;
+            top: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed; /* Fixed positioning to keep the menu at the top */
+            z-index: 100; /* Ensure menu is above other content */
+        }
+
+        .impressum {
+            font-family: 'Redaction', sans-serif;
+            color: rgb(198, 198, 198);
+            line-height: 1.4;
+            text-transform: none;
+            text-decoration: none;
+            text-indent: 0em;
+            border-bottom: none;
+            text-align:justify;
+            width: 100%;
+            padding: 0px; /* Uniform padding on all sides */
+            padding-left: 15px;
+            padding-right: 10px;
+            box-sizing: border-box;
+            bottom: 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed; /* Fixed positioning to keep the menu at the top */
+            z-index: 100; /* Ensure menu is above other content */
+        }
+
+        .intro {
+            margin-top: 5px;
+        }
+        
+        .hidden-audio {
+            opacity: 0;
+            position: fixed; /* or absolute */
+            bottom: -100%; /* Hide the element off-screen */
+            left: -100%;
+            pointer-events: none; /* Disable pointer events so it doesn't interfere with other clickable elements on the page */
+        }
+
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+        }
+
+        sub {
+            font-size: 21pt;
+            vertical-align: baseline; /* Align with the baseline of the surrounding text */
+        }
+
+        .hobby-span {
+            display: inline-block; /* Change the display to inline-block */
+            width: 980px; /* Set the width to 50% */
+            position: absolute;
+            top: -200px;
+            left: -850px;
+        }
+
+        .hover-word {
+            position: relative; /* Add this line */
+        }
+
+        .hover-word:hover {
+            color: rgb(0, 255, 0); /* Change the color to green when hovering */
+            cursor: url('./carousel/zeiger.cur'), auto;
+        }
+
+        .hover-word img {
+            display: none;
+            position: absolute;
+            max-width: 200px;
+            height: auto;
+            pointer-events: none; /* Ensure the image does not capture pointer events */
+        }
+
+        .hover-word:hover img {
+            display: block; /* Show the image when hovering over the word */
+        }
+
+    </style>
+</head>
+<body>
+    <p class="contact">
+        Hochschule der Künste Bern<br>
+        Fellerstrasse 11<br>
+        3027 Bern<br>       
+        Switzerland<br>
+        +41 (0)76 000 2876<br>
+        jasmin.sonderegger@icloud.com</p>
+            
+    <p class="intro">is a graphic designer and VJ living in bern, switzerland.<br>
+        get in touch for new projects, collaborations or a coffee break.</p>
+
+    <p class="impressum">2024 design and implementation by jasmin sonderegger</p>
+
+    <p class="new-text-block"><br><br>
+        <span class="hobby-span">making fancy party visuals<sup><span class="hover-word">(1)<img src="./carmorph2.png" alt="Bild"></span></sup> 
+        into music from the 70s<sup><span class="hover-word">(2)<img src="./carmorph2.png" alt="Bild"></span></sup>, 
+        and electronic sounds<sup><span class="hover-word">(3)<img src="./carmorph2.png" alt="Bild"></span></sup>, 
+        like to get around by bike<sup><span class="hover-word">(4)<img src="./carmorph2.png" alt="Bild"></span></sup>,
+        like swimming in the aare<sup><span class="hover-word">(5)<img src="./carmorph2.png" alt="Bild"></span></sup>, 
+        iced coffee on the balcony<sup><span class="hover-word">(6)<img src="./carmorph2.png" alt="Bild"></span></sup>,
+    </p>
+    
+    <div class="menu">
+        <div class="left">
+            <a href="carouselgrosstransform.html">jasmin sonderegger</a>
+        </div>
+    </div>
+
+    <script>
+        window.onload = function() {
+            var hoverWords = document.querySelectorAll('.hover-word');
+
+            hoverWords.forEach(function(hoverWord) {
+                var img = hoverWord.querySelector('img');
+
+                hoverWord.addEventListener('mousemove', function(e) {
+                    var x = e.pageX + 10; // 10px offset for better visibility
+                    var y = e.pageY + 10; // 10px offset for better visibility
+
+                    // Ensure the image stays within the viewport
+                    var maxX = window.innerWidth - img.offsetWidth;
+                    var maxY = window.innerHeight - img.offsetHeight;
+                    if (x > maxX) x = maxX;
+                    if (y > maxY) y = maxY;
+
+                    img.style.left = x + 'px';
+                    img.style.top = y + 'px';
+                });
+            });
+        };
+    </script> 
+</body>
+</html>
