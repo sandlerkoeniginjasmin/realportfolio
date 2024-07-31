@@ -214,7 +214,7 @@
 </head>
 <body>
 
-<div class="menu">
+    <div class="menu">
         <div class="left">
             <a href="./index.html">jasmin sonderegger</a>
         </div>
@@ -230,16 +230,16 @@
     <!-- Start background image -->
     <div class="start-background"></div>
 
-    <!-- first container needs enough height for the scrolling transition --> 
+    <!-- Ensure the first container has enough height for the scrolling transition -->
 
-    <!-- This container's height will determine when the second image starts growing -->
+     <!-- This container's height will determine when the second image starts growing -->
     <div class="container" style="min-height: 200vh;">
         <a href="./decadencefinder.html" style="display: block; width: 100%; height: 100%;">
             <iframe class="video" src="https://player.vimeo.com/video/983522330?badge=0&amp;autoplay=1&amp;loop=1&amp;controls=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479&amp;background=1" style="width: 100%; height: 100%; border: none;" allow="autoplay; fullscreen" allowfullscreen></iframe>
         </a>
     </div>
 
-    <!-- Weitere Container -->
+    <!-- This container's height will determine when the second image starts growing -->
     <div class="container" style="min-height: 200vh;">
         <a href="./alphafinder.html" style="display: block; width: 100%; height: 100%;">
         <img class="image" src="./index/002.png" alt="alpha boss energy"></a>
@@ -333,16 +333,6 @@
             // Reset scale to initial when not in the active scroll area
             mediaItem.style.transform = 'translate(-50%, -50%) scale(0.005)';
             mediaItem.style.zIndex = 10; // Lower z-index when inactive
-        }
-    });
-});
-
-// Prevent default behavior on iframe clicks and redirect to the link
-document.querySelectorAll('a').forEach(function(link) {
-    link.addEventListener('click', function(event) {
-        if (event.target.tagName === 'IFRAME') {
-            event.preventDefault();
-            window.location.href = link.href;
         }
     });
 });
