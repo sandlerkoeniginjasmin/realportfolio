@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>jasmin sonderegger</title>
+<link href="./JS_favi2.png" rel="icon" type="image/x-icon"/>
+<style>
+    @font-face {
+        font-family: 'AUTHENTICSans';
+        src: url('./AUTHENTICSans-90.woff') format('woff2');
+        font-weight: 100;
+        font-style: italic;
+    }
+
+    p { 
+        position: initial;
+        z-index: 100; /* Ensure menu is above other content */
+    }
+
+    body, html {
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+        padding: 0;
+        color: rgb(198, 198, 198);
+        background-color: black;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        font-family: 'Redaction', sans-serif;
+        cursor: url('./cursortorso.cur'), auto;
+    }
+    
+    .menu {
+        width: 100%;
+        padding: 5px;
+        padding-left: 15px;
+        padding-right: 10px;
+        box-sizing: border-box;
+        position: absolute; 
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: fixed;
+        z-index: 100;
+        mix-blend-mode: difference;
+    }
+
+    .menu a {
+        color: rgb(0, 255, 0);
+        text-decoration: none;
+        font-weight: bold;
+        cursor: url('./zeiger.cur'), auto;
+    }
+
+    .menu a:not(:hover) {
+        color: inherit;
+    }
+
+    a {
+        cursor: url('./zeiger.cur'), auto;
+    }
+
+    .carousel {
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+        width: 100vw;
+        height: 100vh;
+        margin-top: 40px;
+        scroll-snap-type: x mandatory;
+    }
+
+    .carousel-fixed-container {
+        scroll-snap-align: center;
+        display: inline-block;
+        vertical-align: top;
+        height: 100%;
+        align-content: center;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
+    }
+
+    .carousel-item img.blend, .carousel-item video.blend {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        transition: opacity 2s ease;
+    }
+
+    .carousel-item.hidden img.blend, .carousel-item.hidden video.blend {
+        opacity: 1;
+    }
+
+    .carousel-item {
+        width: 100vw;
+        height: 100vh;
+        box-sizing: border-box;
+        padding: 0;
+        scroll-snap-align: center;
+        position: relative;
+    }
+
+    .carousel img, .carousel video {
+        max-width: 100%;
+        max-height: 100%;
+        scroll-snap-align: center;
+        transform: scale(0.005);
+        transform-origin: center;
+        transition: transform 3s, z-index 0s;
+        z-index: 10;
+        background-color: rgba(0, 0, 0,)
+    }
+
+    .carousel img.active, .carousel video.active {
+        transform: scale(0.005);
+        z-index: 20;
+    }
+
+    .carousel-item {
+        visibility: visible;
+    }
+
+    .container {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .spacebar {
+        font-family: 'Redaction', sans-serif;
+        font-size: 16px;
+        color: rgb(198, 198, 198);
+        line-height: 1.4;
+        text-transform: initial;
+        text-decoration: none;
+        border-bottom: none;
+        text-align: center;
+        width: 100%;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        position: fixed;
+        top: 96%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 100;
+        white-space: nowrap;
+    }
+
+    .image, .video {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.005);
+        width: auto;
+        height: auto;
+        transition: transform 2s, z-index 0s;
+        transform-origin: center;
+        z-index: 10;
+    }
+
+    .container:target .image, .container:target .video {
+        transform: translate(-50%, -50%) scale(1);
+        z-index: 20;
+    }
+
+    .start-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: url('./index/backgroundimg.png') center fixed;
+        background-size: cover;
+        z-index: 5;
+    }
+
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
+    body {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+    }
+
+    #myVideo {
+        position: fixed;
+        right: 0;
+        bottom: 0;
+        min-width: 100%;
+        min-height: 100%;
+        width: auto;
+        height: auto;
+        z-index: 0;
+        background-size: cover;
+    }
+
+</style>
+</head>
+<body>
+
+    <div class="menu">
+        <div class="left">
+            <a href="./index.html">jasmin sonderegger</a>
+        </div>
+        
+        <div class="right">
+            <a href="./contact.html">contact</a>
+        </div>
+    </div>
+
+    <p id="spacebarText" class="spacebar">
+        scroll or press space bar</p>
+
+    <div class="start-background"></div>
+
+    <div class="container" style="min-height: 200vh;">
+        <a href="./alphafinder.html" style="display: block; width: 100%; height: 100%;">
+            <img class="image" src="./index/002.png" alt="alpha boss energy">
+        </a>
+    </div>
+
+    <div class="container" style="min-height: 200vh;">
+        <a href="./typoclubfinder.html" style="display: block; width: 100%; height: 100%;">
+            <video class="video" src="./vid13_gscalc_o.mp4" alt="safety video" autoplay loop muted playsinline></video>
+        </a>
+    </div>
+    
+    <div class="container" style="min-height: 200vh;">
+        <a href="./diplomefinder.html" style="display: block; width: 100%; height: 100%;">
+            <video class="video" src="./0014.mp4" alt="diplome 24" autoplay loop muted playsinline></video>
+        </a>
+    </div>
+
+    <div class="container" style="min-height: 200vh;">
+        <a href="./hellhound51_f.html" style="display: block; width: 100%; height: 100%;">
+            <video class="video" src="./4.mp4" alt="hellhound51" autoplay loop muted playsinline></video>
+        </a>
+    </div>
+    
+    <div class="container" style="min-height: 200vh;">
+        <a href="./decadencefinder.html">
+            <video class="video" src="./vid_alle_seiten_mit_sound.mp4" alt="decadence_decay" autoplay loop muted playsinline></video>
+        </a>
+    </div>
+    
+    <div class="container" style="min-height: 200vh;">
+        <a href="./rat.html" style="display: block; width: 100%; height: 100%;">
+            <video class="video" src="./02.mp4" alt="rat lifestyle" autoplay loop muted playsinline></video>
+        </a>
+    </div>
+
+    <div class="container" style="min-height: 200vh;">
+        <a href="./rottingfinder.html" style="display: block; width: 100%; height: 100%;">
+            <video class="video" src="./06.mp4" alt="rotting vhs" autoplay loop muted playsinline></video>
+        </a>
+    </div>
+
+    <div class="container" style="min-height: 200vh;">
+        <a href="./frontexfinder.html" style="display: block; width: 100%; height: 100%;">
+            <video class="video" src="./frontexgame.mp4" alt="safety video" autoplay loop muted playsinline></video>
+        </a>
+    </div>    
+    <div class="container" style="min-height: 200vh;">
+        <a href="./frontexfinder.html">
+            <video class="video" src="../carousel/MAIN/vid13_gscalc_oo.mp4" alt="safety video" autoplay loop muted playsinline></video>
+        </a>
+    </div>
+
+    <!-- Include p5.js script and your custom script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="./js/lib/toxiclibs.js"></script>
+    <script src="./data/landscape.js"></script>
+    <script src="./js/stylegan-transition.js"></script>
+
+    <!-- Additional containers/images can be added similarly -->
+
+<script>
+    // Enable spacebar scrolling but disable playing/pausing videos
+    window.addEventListener('keydown', function(e) {
+        if (e.code === 'Space') {
+            e.preventDefault();
+            window.scrollBy(0, window.innerHeight);
+        }
+    });
+
+    window.addEventListener('scroll', function() {
+        var media = document.querySelectorAll('.image, .video');
+        var scrollPosition = window.scrollY;
+        var spacebarText = document.getElementById('spacebarText');
+
+        // Iterate over images and videos and transform them based on the scroll position
+        media.forEach(function(mediaItem, index) {
+            // Get the dimensions of the media and the viewport
+            var mediaWidth = mediaItem.offsetWidth;
+            var mediaHeight = mediaItem.offsetHeight;
+            var viewportWidth = window.innerWidth;
+            var viewportHeight = window.innerHeight;
+
+            // Calculate the scale factor for both width and height
+            var scaleFactorWidth = viewportWidth / mediaWidth;
+            var scaleFactorHeight = viewportHeight / mediaHeight;
+
+            // Determine the larger scale factor
+            var scaleFactor = Math.max(scaleFactorWidth, scaleFactorHeight);
+
+            // Each container has a height that determines when the scaling should start and finish
+            var containerStart = index * viewportHeight * 2; // Multiplied by 2 to add more space
+            var containerEnd = (index + 1) * viewportHeight * 2;
+
+            if (scrollPosition > containerStart && scrollPosition < containerEnd) {
+                // Calculate the scale based on scroll position within the container
+                var progress = (scrollPosition - containerStart) / (viewportHeight * 2);
+                var scale = 0.005 + progress * (scaleFactor - 0.005); // Lerp from 0.005 to scaleFactor
+                mediaItem.style.transform = 'translate(-50%, -50%) scale(' + Math.min(scale, scaleFactor) + ')';
+                mediaItem.style.zIndex = 20; // Raise z-index when active
+
+                // Hide the spacebar text when the first media item starts to grow
+                if (index === 0 && progress > 0) {
+                    spacebarText.style.display = 'none';
+                }
+            } else if (scrollPosition >= containerEnd) {
+                // Keep the media at full scale beyond the scroll threshold
+                mediaItem.style.transform = 'translate(-50%, -50%) scale(' + scaleFactor + ')';
+                mediaItem.style.zIndex = 20; // Raise z-index when active
+            } else {
+                // Reset scale to initial when not in the active scroll area
+                mediaItem.style.transform = 'translate(-50%, -50%) scale(0.005)';
+                mediaItem.style.zIndex = 10; // Lower z-index when inactive
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
